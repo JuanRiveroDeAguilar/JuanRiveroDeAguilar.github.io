@@ -1,23 +1,23 @@
-    .badge-construccion {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background-color: #ff9800;
-        color: #fff;  
-        padding: 5px 12px;
-        font-size: 0.9rem;
+ .badge-construccion {
+        position: fixed;      /* Siempre visible */
+        top: 20px;            /* Distancia desde arriba */
+        right: 20px;          /* Distancia desde la derecha */
+        background-color: #ff9800; /* Color de fondo llamativo */
+        color: #fff;          /* Texto blanco */
+        padding: 5px 12px;    /* Espaciado interno */
+        font-size: 0.9rem;    /* Tamaño de letra */
         font-weight: bold;
-        border-radius: 5px;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        z-index: 1000;
+        border-radius: 5px;   /* Bordes redondeados */
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Sombra */
+        z-index: 1000;        /* Siempre arriba */
     }
     header .autor {
-        font-size: 1rem;
-        color: #666;  
-        margin-top: 5px;
-        text-align: right;
-        font-style: italic;
-        
+        font-size: 1rem;       /* Más pequeño que el h1 */
+        color: #666;             /* Gris oscuro */
+        margin-top: 5px;         /* Espacio entre título y nombre */
+        text-align: right;       /* Opcional: alineado a la derecha */
+        font-style: italic;      /* Opcional: cursiva */
+    }
     }:root {
         --bg: #fff;
         --text: #1a1a1a;
