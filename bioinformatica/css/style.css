@@ -1,1 +1,101 @@
+    :root {
+        --bg: #fff;
+        --text: #1a1a1a;
+        --line: #000;
+        --accent: #f0f0f0;
+    }
+
+    body {
+        font-family: 'JetBrains Mono', monospace;
+        background: var(--bg);
+        color: var(--text);
+        margin: 0;
+        padding: 40px 20px;
+        line-height: 1.6;
+    }
+
+    .container { max-width: 750px; margin: auto; }
+
+    header {
+        border-bottom: 2px solid var(--line);
+        padding-bottom: 20px;
+        margin-bottom: 40px;
+    }
+
+    h1 { font-size: 1.5rem; margin: 0; }
+
+    nav { margin-top: 15px; }
+    nav a {
+        color: inherit;
+        text-decoration: none;
+        margin-right: 25px;
+        border-bottom: 1px solid transparent;
+    }
+    nav a:hover { border-bottom: 1px solid var(--line); }
+
+    section, article { margin-bottom: 60px; }
+
+    h2 {
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        border-left: 5px solid var(--line);
+        padding-left: 15px;
+        margin-bottom: 25px;
+    }
+
+    p { margin-bottom: 20px; text-align: justify; }
+
+    pre {
+        background: #f4f4f4;
+        padding: 15px;
+        border: 1px solid #000;
+        font-size: 0.8rem;
+        overflow-x: auto;
+        margin-bottom: 20px;
+    }
+
+    .codons {
+        list-style: none;
+        padding: 10px 20px;
+        background: var(--accent);
+        border-left: 3px solid var(--line);
+        margin: 20px 0;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+        border-bottom: 1px dotted #000;
+    }
+    a:hover { background: var(--accent); }
+
+    .cursor {
+        display: inline-block;
+        width: 8px;
+        height: 1.2rem;
+        background: var(--text);
+        animation: blink 1s infinite;
+        vertical-align: middle;
+    }
+
+    @keyframes blink { 50% { opacity: 0; } }
+
+    footer {
+        margin-top: 50px;
+        padding-top: 20px;
+        border-top: 1px solid #ccc;
+        font-size: 0.8rem;
+        text-align: center;
+        color: #666;
+    }
+    .steps > li {
+        margin-bottom: 10px;
+        line-height: 1.5;
+    }
+    code {
+        background: #f0f0f0;
+        padding: 2px 6px;
+        border: 1px solid #ccc;
+        font-size: 0.85rem;
+    }
 
