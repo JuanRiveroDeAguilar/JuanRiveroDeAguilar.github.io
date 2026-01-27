@@ -58,19 +58,29 @@
         <p>Resumen de los pasos a seguir:</p>
 
         <ol class="steps">            
-            <li>Primero necesitamos un editor de texto adecuado para escribir el código como <a href="https://code.visualstudio.com" target="_blank">Visual Studio Code</a>. Facilita la escritura y lectura (resaltado de sintaxis con colores), ayuda con la indentación (lo veremos en otro capítulo), tiene infinitas funcionalidades y lo más importante, permite abrir la <a href="https://es.wikipedia.org/wiki/Intérprete_de_comandos" target="_blank">terminal o consola</a> (que es desde donde ejecutaremos el código).</li>
-            <li>A continuación, creamos un archivo de texto desde VSC (en donde vamos a escribir el código) y lo guardamos como <code>hola.py</code> (Archivo/Nuevo Archivo/Archivo de texto/Guardar/hola.py).</li>        
-            <li> Ahora escribimos el código. Por ejemplo: </li>     
+            <li>
+                Primero necesitamos un editor de texto adecuado para escribir el código como <a href="https://code.visualstudio.com" target="_blank">Visual Studio Code</a>. Facilita la escritura y lectura, permite abrir la terminal, etc.
+            </li>
+        
+            <li>
+                A continuación, creamos un archivo de texto desde VSC y lo guardamos como <code>hola.py</code>.
+            </li>        
+        
+            <li> 
+                Ahora escribimos el código. Por ejemplo:
                 <ul class="codigo-python">
                     <li>print("Hola mundo")</li>
                 </ul>
-            <li> Finalmente, ejecutamos el código desde la terminal abriendo una nueva terminal dentro de VSC donde escribimos: </li>
+            </li>
+        
+            <li> 
+                Finalmente, ejecutamos el código desde la terminal abriendo una nueva terminal dentro de VSC donde escribimos:
                 <ul class="terminal-output">
                     <li>python3.12 hola.py</li>                 
                 </ul>
+            </li>
         </ol>
         
-        <p>(Para mayor facilidad todo lo que sea código está en azul y la terminal en verde)</p>
         <p>¿Por qué 3.12?. Porque tenemos que indicar la versión de Python que queremos utilizar.</p>  
         
         <p>Aquí nos detenemos un momento, ya que es necesario explicar un par de conceptos importantes. Para poder ejecutar <code>hola.py</code>, tenemos que indicar a Python el directorio en donde se encuentra el archivo (o bien situarnos en ese directorio desde la terminal). Una forma sencilla de averiguarlo es escribir en la terminal: <code>pwd</code></p>
@@ -180,9 +190,7 @@
 
         <ul class="codigo-python">
             <li>from Bio.Seq import Seq</li>
-            <li></li>
             <li>secuencia = Seq("AAA")</li>
-            <li></li>
             <li>print(secuencia)</li>
             <li>print(secuencia.complement())</li>
         </ul>
