@@ -1,9 +1,12 @@
-/* --- VARIABLES Y BASE --- */
 :root {
     --bg: #fff;
     --text: #1a1a1a;
     --line: #000;
-    --accent: #f0f0f0; /* Gris claro para bloques y hover */
+    --accent: #f0f0f0; 
+    --code-bg: #1e1e1e; 
+    --code-text: #d4d4d4;
+    --terminal-green: #00ff00;
+    --python-blue: #61afef;
 }
 
 body {
@@ -20,144 +23,135 @@ body {
     margin: auto; 
 }
 
-/* --- COMPONENTES --- */
 .badge-construccion {
-    position: fixed;      
-    top: 20px;           
-    right: 20px;          
+    position: fixed; 
+    top: 20px; 
+    right: 20px;
     background-color: #ff9800; 
-    color: #fff;          
-    padding: 5px 12px;    
-    font-size: 0.8rem;   /* Ligeramente más pequeño para no estorbar */
+    color: #fff;
+    padding: 5px 12px; 
+    font-size: 0.8rem; 
     font-weight: bold;
-    border-radius: 5px;   
+    border-radius: 5px; 
     box-shadow: 0 2px 5px rgba(0,0,0,0.2); 
-    z-index: 1000;       
+    z-index: 1000;
 }
 
-header {
-    border-bottom: 2px solid var(--line);
-    padding-bottom: 20px;
-    margin-bottom: 40px;
+header { 
+    border-bottom: 2px solid var(--line); 
+    padding-bottom: 20px; 
+    margin-bottom: 40px; 
 }
 
 h1 { 
     font-size: 1.5rem; 
     margin: 0; 
-    /* Solución para el desborde del título largo */
     overflow-wrap: anywhere; 
-    word-break: break-word;
+    word-break: break-word; 
 }
 
-header .autor {
-    font-size: 1rem;       
-    color: #666;            
-    margin-top: 5px;         
-    text-align: right;       
-    font-style: italic;     
+header .autor { 
+    font-size: 1rem; 
+    color: #666; 
+    margin-top: 5px; 
+    text-align: right; 
+    font-style: italic; 
 }
 
-/* --- NAVEGACIÓN --- */
-nav { margin-top: 15px; }
-nav a {
-    color: inherit;
-    text-decoration: none;
-    margin-right: 25px;
-    border-bottom: 1px solid transparent;
-    display: inline-block; /* Para que el margen funcione mejor en móvil */
-}
-nav a:hover { border-bottom: 1px solid var(--line); }
-
-/* --- CONTENIDO --- */
-section, article { margin-bottom: 60px; }
-
-h2 {
-    font-size: 1.1rem;
-    text-transform: uppercase;
-    border-left: 5px solid var(--line);
-    padding-left: 15px;
-    margin-bottom: 25px;
-}
-
-p { margin-bottom: 20px; text-align: justify; }
-
-pre {
-    background: #f4f4f4;
+.codigo-python, .terminal-output {
+    background-color: var(--code-bg);
+    color: var(--code-text);
     padding: 15px;
-    border: 1px solid #000;
-    font-size: 0.8rem;
-    overflow-x: auto; /* Permite scroll horizontal en código largo */
-    margin-bottom: 20px;
-}
-
-code {
-    background: var(--accent);
-    padding: 2px 6px;
-    border: 1px solid #ccc;
-    font-size: 0.85rem;
-}
-
-.codons {
+    border-radius: 5px;
     list-style: none;
-    padding: 10px 20px;
-    background: var(--accent);
-    border-left: 3px solid var(--line);
+    font-family: 'JetBrains Mono', monospace;
     margin: 20px 0;
+    font-size: 0.9rem;
+    border: 1px solid #333;
 }
 
-/* --- ENLACES Y CURSOR --- */
-a {
-    color: inherit;
-    text-decoration: none;
-    border-bottom: 1px dotted #000;
-}
-a:hover { background: var(--accent); }
-
-.cursor {
-    display: inline-block;
-    width: 8px;
-    height: 1.2rem;
-    background: var(--text);
-    animation: blink 1s infinite;
-    vertical-align: middle;
+.codigo-python {
+    border-left: 5px solid var(--python-blue);
+    counter-reset: line;
 }
 
-@keyframes blink { 50% { opacity: 0; } }
-
-/* --- FOOTER --- */
-footer {
-    margin-top: 50px;
-    padding-top: 20px;
-    border-top: 1px solid #ccc;
-    font-size: 0.8rem;
-    text-align: center;
-    color: #666;
+.codigo-python li {
+    counter-increment: line;
+    position: relative;
+    padding-left: 35px;
 }
 
-/* --- AJUSTES PARA MÓVIL (MEDIA QUERY) --- */
+.codigo-python li::before {
+    content: counter(line);
+    position: absolute;
+    left: 0;
+    color: #5c6370;
+    font-size: 0.75rem;
+    text-align: right;
+    width: 25px;
+}
+
+.terminal-output {
+    border-left: 5px solid var(--terminal-green);
+    color: #fff;
+}
+
+.terminal-output li::before { 
+    content: none; 
+}
+
+h2 { 
+    font-size: 1.1rem; 
+    text-transform: uppercase; 
+    border-left: 5px solid var(--line); 
+    padding-left: 15px; 
+    margin-bottom: 25px; 
+}
+
+p { 
+    margin-bottom: 20px; 
+    text-align: justify; 
+}
+
+code { 
+    background: var(--accent); 
+    padding: 2px 6px; 
+    border: 1px solid #ccc; 
+    font-size: 0.85rem; 
+}
+
+a { 
+    color: inherit; 
+    text-decoration: none; 
+    border-bottom: 1px dotted #000; 
+}
+
+a:hover { 
+    background: var(--accent); 
+}
+
+footer { 
+    margin-top: 50px; 
+    padding-top: 20px; 
+    border-top: 1px solid #ccc; 
+    font-size: 0.8rem; 
+    text-align: center; 
+    color: #666; 
+}
+
 @media (max-width: 600px) {
-    body {
-        padding: 20px 15px; /* Menos espacio en los bordes */
+    body { 
+        padding: 20px 15px; 
     }
-
-    h1 {
-        font-size: 1.2rem; /* Título un poco más pequeño */
+    h1 { 
+        font-size: 1.2rem; 
     }
-
-    .badge-construccion {
-        position: static; /* Deja de flotar para no tapar el título */
-        display: inline-block;
-        margin-bottom: 10px;
-        top: auto;
-        right: auto;
+    .badge-construccion { 
+        position: static; 
+        display: inline-block; 
+        margin-bottom: 10px; 
     }
-
-    header .autor {
-        text-align: left; /* Alineado natural para lectura en móvil */
-    }
-
-    nav a {
-        margin-right: 15px;
-        font-size: 0.9rem;
+    header .autor { 
+        text-align: left; 
     }
 }
