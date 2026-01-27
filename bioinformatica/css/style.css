@@ -1,12 +1,16 @@
+/* 1. VARIABLES Y CONFIGURACIÓN BASE */
 :root {
-    --bg: #fff;
+    --bg: #ffffff;
     --text: #1a1a1a;
-    --line: #000;
+    --line: #000000;
     --accent: #f0f0f0; 
-    --code-bg-light: #f4f4f4; 
-    --code-text-dark: #1a1a1a;  
-    --terminal-bg: #1e1e1e;    
-    --terminal-text: #fff;     
+    --vsc-bg: #1e1e1e;         /* Fondo exacto de VS Code */
+    --terminal-bg: #0d0d0d;    /* Negro profundo para la consola */
+    --terminal-text: #00ff41;  /* Verde neón brillante */
+}
+
+* {
+    box-sizing: border-box;
 }
 
 body {
@@ -20,10 +24,11 @@ body {
 }
 
 .container { 
-    max-width: 800px; 
+    max-width: 850px; 
     margin: auto; 
 }
 
+/* 2. COMPONENTES DE DISEÑO */
 .badge-construccion {
     position: fixed; 
     top: 20px; 
@@ -47,14 +52,14 @@ header {
 }
 
 h1 { 
-    font-size: 2.2rem; 
+    font-size: 2rem; 
     margin: 0; 
     overflow-wrap: anywhere; 
     word-break: break-word;
 }
 
 header .autor { 
-    font-size: 1.1rem; 
+    font-size: 1rem; 
     color: #666; 
     margin-top: 5px; 
     text-align: right; 
@@ -62,51 +67,18 @@ header .autor {
 }
 
 section#intro, article {
-    margin-bottom: 40px;
-    padding-bottom: 40px;
+    margin-bottom: 50px;
+    padding-bottom: 30px;
     border-bottom: 1px solid var(--accent);
 }
 
-article:last-of-type {
-    margin-bottom: 60px;
-    border-bottom: none;
-}
-
-.codigo-python, .terminal-output {
-    padding: 20px;
-    border-radius: 5px;
-    list-style: none;
-    font-family: 'JetBrains Mono', monospace;
-    margin: 25px 0;
-    font-size: 0.9rem;
-    display: flow-root;
-}
-
-.codigo-python {
-    background-color: var(--code-bg-light);
-    color: var(--code-text-dark);
-    border: 1px solid #ddd;
-}
-
-.terminal-output {
-    background-color: var(--terminal-bg);
-    color: var(--terminal-text);
-    border: 1px solid #333;
-}
-
-.codigo-python li, .terminal-output li {
-    margin: 0 !important;
-    line-height: 1.7; 
-    display: block; 
-}
-
 h2 { 
-    font-size: 1.3rem; 
+    font-size: 1.2rem; 
     text-transform: uppercase; 
     border-left: 5px solid var(--line); 
     padding-left: 15px; 
     margin-bottom: 25px; 
-    margin-top: 30px;
+    margin-top: 40px;
 }
 
 p { 
@@ -114,54 +86,88 @@ p {
     text-align: justify; 
 }
 
-code { 
+/* 3. BLOQUES DE CÓDIGO Y TERMINAL */
+
+/* Bloque de código Python (Estilo VS Code con Prism.js) */
+pre[class*="language-"] {
+    background-color: var(--vsc-bg) !important;
+    margin: 25px 0 !important;
+    padding: 20px !important;
+    border-radius: 8px !important;
+    font-size: 0.9rem !important;
+    border: 1px solid #333;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+/* Bloque de Salida de Terminal (Verde Brillante) */
+.terminal-output {
+    background-color: var(--terminal-bg);
+    color: var(--terminal-text);
+    padding: 15px 20px;
+    border-radius: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    margin: 25px 0;
+    font-size: 0.85rem;
+    border: 1px solid #333;
+    white-space: pre; /* Mantiene alineación perfecta para errores y secuencias */
+    overflow-x: auto;
+    text-shadow: 0 0 5px rgba(0, 255, 65, 0.3); /* Efecto de brillo neón */
+    line-height: 1.5;
+}
+
+/* Código en línea dentro de párrafos */
+code:not([class*="language-"]) { 
     background: var(--accent); 
     padding: 2px 6px; 
     border: 1px solid #ccc; 
-    font-size: 0.85rem; 
+    font-size: 0.9em;
+    border-radius: 4px;
+    color: #d63384; 
+}
+
+/* 4. LISTAS Y ENLACES */
+.steps { 
+    padding-left: 25px; 
+}
+
+.steps li { 
+    margin-bottom: 25px; 
 }
 
 a { 
     color: inherit; 
     text-decoration: none; 
-    border-bottom: 1px dotted #000; 
+    border-bottom: 1.5px solid #000; 
+    transition: background 0.3s;
 }
 
 a:hover { 
     background: var(--accent); 
 }
 
-.steps { 
-    padding-left: 25px; 
-}
-
-.steps li { 
-    margin-bottom: 30px; 
-    padding-left: 10px; 
-}
-
 footer { 
     margin-top: 80px; 
-    padding-top: 20px; 
+    padding: 40px 0; 
     border-top: 1px solid #ccc; 
-    font-size: 0.9rem; 
+    font-size: 0.8rem; 
     text-align: center; 
-    color: #666; 
+    color: #999; 
+    letter-spacing: 2px;
 }
 
+/* 5. RESPONSIVE */
 @media (max-width: 600px) {
     body { 
         padding: 20px 15px; 
         font-size: 16px; 
     }
     h1 { 
-        font-size: 1.5rem; 
+        font-size: 1.4rem; 
     }
     .badge-construccion {
-        position: relative;
-        top: 0;
-        right: 0;
-        display: inline-block;
+        position: static;
+        display: block;
+        text-align: center;
         margin-bottom: 20px;
     }
 }
