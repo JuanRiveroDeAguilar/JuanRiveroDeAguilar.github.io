@@ -3,10 +3,10 @@
     --text: #1a1a1a;
     --line: #000;
     --accent: #f0f0f0; 
-    --code-bg: #1e1e1e; 
-    --code-text: #d4d4d4;
-    --terminal-green: #00ff00;
-    --python-blue: #61afef;
+    --code-bg-light: #f4f4f4; 
+    --code-text-dark: #1a1a1a;  
+    --terminal-bg: #1e1e1e;    
+    --terminal-text: #fff;     
 }
 
 body {
@@ -16,45 +16,32 @@ body {
     margin: 0;
     padding: 40px 20px;
     line-height: 1.6;
+    font-size: 18px;
 }
 
 .container { 
-    max-width: 750px; 
+    max-width: 800px; 
     margin: auto; 
 }
 
-.badge-construccion {
-    position: fixed; 
-    top: 20px; 
-    right: 20px;
-    background-color: #ff9800; 
-    color: #fff;
-    padding: 5px 12px; 
-    font-size: 0.8rem; 
-    font-weight: bold;
-    border-radius: 5px; 
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2); 
-    z-index: 1000;
-}
-
 header { 
-    margin-top: 20px;
+    margin-top: 60px;
     border-bottom: 2px solid var(--line); 
-    padding-bottom: 5px; 
+    padding-bottom: 10px; 
     margin-bottom: 40px; 
 }
 
 h1 { 
-    font-size: 2 rem; 
+    font-size: 2.2rem; 
     margin: 0; 
     overflow-wrap: anywhere; 
-    word-break: break-word; 
+    word-break: break-word;
 }
 
 header .autor { 
-    font-size: 1rem; 
+    font-size: 1.1rem; 
     color: #666; 
-    margin-top: 15px; 
+    margin-top: 5px; 
     text-align: right; 
     font-style: italic; 
 }
@@ -70,55 +57,51 @@ article:last-of-type {
     border-bottom: none;
 }
 
-.codigo-python, .terminal-output {
-    background-color: var(--code-bg);
-    color: var(--code-text);
-    padding: 15px;
+.codigo-python {
+    background-color: var(--code-bg-light);
+    color: var(--code-text-dark);
+    padding: 20px; /* Un poco más de aire al no haber números */
     border-radius: 5px;
     list-style: none;
     font-family: 'JetBrains Mono', monospace;
-    margin: 20px 0;
+    margin: 25px 0;
     font-size: 0.9rem;
-    border: 1px solid #333;
-}
-
-.codigo-python {
-    border-left: 5px solid var(--python-blue);
-    counter-reset: line;
+    border: 1px solid #ddd;
+    display: flow-root; 
 }
 
 .codigo-python li {
-    counter-increment: line;
-    position: relative;
-    padding-left: 35px;
-}
-
-.codigo-python li::before {
-    content: counter(line);
-    position: absolute;
-    left: 0;
-    color: #5c6370;
-    font-size: 0.75rem;
-    text-align: right;
-    width: 25px;
+    margin: 0 !important;
+    line-height: 1.7; 
+    display: block; 
 }
 
 .terminal-output {
-    border-left: 5px solid var(--terminal-green);
-    color: #fff;
+    background-color: var(--terminal-bg);
+    color: var(--terminal-text);
+    padding: 20px;
+    border-radius: 5px;
+    list-style: none;
+    font-family: 'JetBrains Mono', monospace;
+    margin: 25px 0;
+    font-size: 0.9rem;
+    border: 1px solid #333;
+    display: flow-root;
 }
 
-.terminal-output li::before { 
-    content: none; 
+.terminal-output li {
+    margin: 0 !important;
+    line-height: 1.7;
+    display: block;
 }
 
 h2 { 
-    font-size: 1.1rem; 
+    font-size: 1.3rem; 
     text-transform: uppercase; 
     border-left: 5px solid var(--line); 
     padding-left: 15px; 
     margin-bottom: 25px; 
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 p { 
@@ -143,40 +126,25 @@ a:hover {
     background: var(--accent); 
 }
 
-.steps li {
-    margin-bottom: 15px;
-    padding-left: 10px;
+.steps { 
+    padding-left: 25px; 
 }
 
-.steps li:last-child {
-    margin-bottom: 0;
+.steps li { 
+    margin-bottom: 30px; 
+    padding-left: 10px; 
 }
 
 footer { 
-    margin-top: 50px; 
+    margin-top: 80px; 
     padding-top: 20px; 
     border-top: 1px solid #ccc; 
-    font-size: 0.8rem; 
+    font-size: 0.9rem; 
     text-align: center; 
     color: #666; 
 }
 
 @media (max-width: 600px) {
-    body { 
-        padding: 20px 15px; 
-    }
-    header {
-        margin-top: 20px;
-    }
-    h1 { 
-        font-size: 1.2rem; 
-    }
-    .badge-construccion { 
-        position: static; 
-        display: inline-block; 
-        margin-bottom: 10px; 
-    }
-    header .autor { 
-        text-align: left; 
-    }
+    body { padding: 20px 15px; font-size: 16px; }
+    h1 { font-size: 1.5rem; }
 }
