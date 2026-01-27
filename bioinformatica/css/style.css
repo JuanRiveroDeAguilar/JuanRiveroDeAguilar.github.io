@@ -1,122 +1,163 @@
-    
-    .badge-construccion {
-        position: fixed;      
-        top: 20px;           
-        right: 20px;          
-        background-color: #ff9800; 
-        color: #fff;          
-        padding: 5px 12px;    
-        font-size: 0.9rem;   
-        font-weight: bold;
-        border-radius: 5px;   
-        box-shadow: 0 2px 5px rgba(0,0,0,0.2); 
-        z-index: 1000;       
-    }
-    header .autor {
-        font-size: 1rem;       
-        color: #666;            
-        margin-top: 5px;         
-        text-align: right;       
-        font-style: italic;     
-    }
-    
-    :root {
-        --bg: #fff;
-        --text: #1a1a1a;
-        --line: #000;
-        --accent: #f0f0f0;
-    }
+/* --- VARIABLES Y BASE --- */
+:root {
+    --bg: #fff;
+    --text: #1a1a1a;
+    --line: #000;
+    --accent: #f0f0f0; /* Gris claro para bloques y hover */
+}
 
+body {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--bg);
+    color: var(--text);
+    margin: 0;
+    padding: 40px 20px;
+    line-height: 1.6;
+}
+
+.container { 
+    max-width: 750px; 
+    margin: auto; 
+}
+
+/* --- COMPONENTES --- */
+.badge-construccion {
+    position: fixed;      
+    top: 20px;           
+    right: 20px;          
+    background-color: #ff9800; 
+    color: #fff;          
+    padding: 5px 12px;    
+    font-size: 0.8rem;   /* Ligeramente más pequeño para no estorbar */
+    font-weight: bold;
+    border-radius: 5px;   
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); 
+    z-index: 1000;       
+}
+
+header {
+    border-bottom: 2px solid var(--line);
+    padding-bottom: 20px;
+    margin-bottom: 40px;
+}
+
+h1 { 
+    font-size: 1.5rem; 
+    margin: 0; 
+    /* Solución para el desborde del título largo */
+    overflow-wrap: anywhere; 
+    word-break: break-word;
+}
+
+header .autor {
+    font-size: 1rem;       
+    color: #666;            
+    margin-top: 5px;         
+    text-align: right;       
+    font-style: italic;     
+}
+
+/* --- NAVEGACIÓN --- */
+nav { margin-top: 15px; }
+nav a {
+    color: inherit;
+    text-decoration: none;
+    margin-right: 25px;
+    border-bottom: 1px solid transparent;
+    display: inline-block; /* Para que el margen funcione mejor en móvil */
+}
+nav a:hover { border-bottom: 1px solid var(--line); }
+
+/* --- CONTENIDO --- */
+section, article { margin-bottom: 60px; }
+
+h2 {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    border-left: 5px solid var(--line);
+    padding-left: 15px;
+    margin-bottom: 25px;
+}
+
+p { margin-bottom: 20px; text-align: justify; }
+
+pre {
+    background: #f4f4f4;
+    padding: 15px;
+    border: 1px solid #000;
+    font-size: 0.8rem;
+    overflow-x: auto; /* Permite scroll horizontal en código largo */
+    margin-bottom: 20px;
+}
+
+code {
+    background: var(--accent);
+    padding: 2px 6px;
+    border: 1px solid #ccc;
+    font-size: 0.85rem;
+}
+
+.codons {
+    list-style: none;
+    padding: 10px 20px;
+    background: var(--accent);
+    border-left: 3px solid var(--line);
+    margin: 20px 0;
+}
+
+/* --- ENLACES Y CURSOR --- */
+a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px dotted #000;
+}
+a:hover { background: var(--accent); }
+
+.cursor {
+    display: inline-block;
+    width: 8px;
+    height: 1.2rem;
+    background: var(--text);
+    animation: blink 1s infinite;
+    vertical-align: middle;
+}
+
+@keyframes blink { 50% { opacity: 0; } }
+
+/* --- FOOTER --- */
+footer {
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid #ccc;
+    font-size: 0.8rem;
+    text-align: center;
+    color: #666;
+}
+
+/* --- AJUSTES PARA MÓVIL (MEDIA QUERY) --- */
+@media (max-width: 600px) {
     body {
-        font-family: 'JetBrains Mono', monospace;
-        background: var(--bg);
-        color: var(--text);
-        margin: 0;
-        padding: 40px 20px;
-        line-height: 1.6;
+        padding: 20px 15px; /* Menos espacio en los bordes */
     }
 
-    .container { max-width: 750px; margin: auto; }
-
-    header {
-        border-bottom: 2px solid var(--line);
-        padding-bottom: 20px;
-        margin-bottom: 40px;
+    h1 {
+        font-size: 1.2rem; /* Título un poco más pequeño */
     }
 
-    h1 { font-size: 1.5rem; margin: 0; }
-
-    nav { margin-top: 15px; }
-    nav a {
-        color: inherit;
-        text-decoration: none;
-        margin-right: 25px;
-        border-bottom: 1px solid transparent;
-    }
-    nav a:hover { border-bottom: 1px solid var(--line); }
-
-    section, article { margin-bottom: 60px; }
-
-    h2 {
-        font-size: 1.1rem;
-        text-transform: uppercase;
-        border-left: 5px solid var(--line);
-        padding-left: 15px;
-        margin-bottom: 25px;
-    }
-
-    p { margin-bottom: 20px; text-align: justify; }
-
-    pre {
-        background: #f4f4f4;
-        padding: 15px;
-        border: 1px solid #000;
-        font-size: 0.8rem;
-        overflow-x: auto;
-        margin-bottom: 20px;
-    }
-
-    .codons {
-        list-style: none;
-        padding: 10px 20px;
-        background: var(--accent);
-        border-left: 3px solid var(--line);
-        margin: 20px 0;
-    }
-
-    a {
-        color: inherit;
-        text-decoration: none;
-        border-bottom: 1px dotted #000;
-    }
-    a:hover { background: var(--accent); }
-
-    .cursor {
+    .badge-construccion {
+        position: static; /* Deja de flotar para no tapar el título */
         display: inline-block;
-        width: 8px;
-        height: 1.2rem;
-        background: var(--text);
-        animation: blink 1s infinite;
-        vertical-align: middle;
-    }
-
-    @keyframes blink { 50% { opacity: 0; } }
-
-    footer {
-        margin-top: 50px;
-        padding-top: 20px;
-        border-top: 1px solid #ccc;
-        font-size: 0.8rem;
-        text-align: center;
-        color: #666;
-    }
-    .steps > li {
         margin-bottom: 10px;
-        line-height: 1.5;
+        top: auto;
+        right: auto;
     }
-    code {
-        background: #f0f0f0;
-        padding: 2px 6px;
-        border: 1px solid #ccc;
-        font-size: 0.85rem;
+
+    header .autor {
+        text-align: left; /* Alineado natural para lectura en móvil */
     }
+
+    nav a {
+        margin-right: 15px;
+        font-size: 0.9rem;
+    }
+}
