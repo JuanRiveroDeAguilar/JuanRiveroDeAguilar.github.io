@@ -58,6 +58,17 @@ header .autor {
     font-style: italic; 
 }
 
+section#intro, article {
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--accent);
+}
+
+article:last-of-type {
+    margin-bottom: 60px;
+    border-bottom: none;
+}
+
 .codigo-python, .terminal-output {
     background-color: var(--code-bg);
     color: var(--code-text);
@@ -128,6 +139,15 @@ a {
 
 a:hover { 
     background: var(--accent); 
+}
+
+.steps li {
+    margin-bottom: 15px;
+    padding-left: 10px;
+}
+
+.steps li:last-child {
+    margin-bottom: 0;
 }
 
 footer { 
