@@ -6,6 +6,9 @@
         <title>INTRODUCCIÓN A LA BIOINFORMÁTICA</title>
         <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="css/style.css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
     </head>
 
 <body>
@@ -40,9 +43,7 @@
         <h2>Capítulo 2. Hola mundo.</h2>
         <p>El famoso “Hola mundo” en programación, ¡pero a mí me costó un mundo ejecutar este script!.</p>
         
-        <ul class="codigo-python">
-            <li>print("Hola mundo")</li>     
-        </ul>  
+        <pre><code class="language-python">print("Hola mundo")</code></pre>
 
         <p>¿Pero que esto de "Hola mundo"? ¿Como se ejecuta?. Vayamos por partes.</p> 
         <p>En resumen:</p>
@@ -68,16 +69,12 @@
         
             <li> 
                 Ahora escribimos el código. Por ejemplo:
-                <ul class="codigo-python">
-                    <li>print("Hola mundo")</li>
-                </ul>
+                <pre><code class="language-python">print("Hola mundo")</code></pre>
             </li>
         
             <li> 
                 Finalmente, ejecutamos el código desde la terminal abriendo una nueva terminal dentro de VSC donde escribimos:
-                <ul class="terminal-output">
-                    <li>python3.12 hola.py</li>                 
-                </ul>
+                <pre class="terminal-output">python3.12 hola.py</pre>
             </li>
         </ol>
         
@@ -85,26 +82,25 @@
         
         <p>Aquí nos detenemos un momento, ya que es necesario explicar un par de conceptos importantes. Para poder ejecutar <code>hola.py</code>, tenemos que indicar a Python el directorio en donde se encuentra el archivo (o bien situarnos en ese directorio desde la terminal). Una forma sencilla de averiguarlo es escribir en la terminal: <code>pwd</code></p>
         
-        <ul class="terminal-output">
-            <li>(base) MacBook-Air-de-Juan:~ juan$ pwd</li>  
-            <li>/Users/juan</li>             
-        </ul>
+        <pre class="terminal-output">
+(base) MacBook-Air-de-Juan:~ juan$ pwd
+/Users/juan</pre>
         
         <p>En el supuesto que no sea el directorio correcto habría que desplazarse mediante los típicos <a href="https://es.wikipedia.org/wiki/Anexo:Comandos_Unix" target="_blank">comandos</a> de <a href="https://es.wikipedia.org/wiki/Unix" target="_blank">UNIX</a> de la terminal (<code>cd, cd.., ls</code>) hasta llegar al archivo. Por ejemplo, mi archivo <code>hola.py</code> está en el directorio <code>/Users/juan/Desktop/python/hola.py</code> entonces tengo que escribir <code>cd desktop</code>, a continuación <code>cd python</code>, y finalmente ejecutar el programa <code>python3.12 hola.py</code></p>
         
-        <ul class="terminal-output">
-            <li>(base) MacBook-Air-de-Juan:~ juan$ cd desktop</li>  
-            <li>(base) MacBook-Air-de-Juan:desktop juan$ cd python</li>  
-            <li>(base) MacBook-Air-de-Juan:python juan$ python3.12 hola.py</li>     
-            <li>Hola mundo</li>          
-        </ul>
+        <pre class="terminal-output">
+(base) MacBook-Air-de-Juan:~ juan$ cd desktop
+(base) MacBook-Air-de-Juan:desktop juan$ cd python
+(base) MacBook-Air-de-Juan:python juan$ python3.12 hola.py
+Hola mundo
+        </pre>
 
         <p>¿Pero que sucedería si en vez de escribir "Hola mundo" en nuestro <code>hola.py</code> escribimos "ATCG"?</p>
         
-        <ul class="terminal-output">
-            <li>(base) MacBook-Air-de-Juan:python juan$ python3.12 hola.py</li>     
-            <li>ATGC</li>          
-        </ul>
+        <pre class="terminal-output">
+(base) MacBook-Air-de-Juan:python juan$ python3.12 hola.py
+ATGC
+        </pre>
         
         <p>¡BIENVENID@ A LA <strong>BIOINFORMÁTICA</strong>!</p>
         
@@ -117,61 +113,54 @@
         <p>Hagamos un ejemplo creando un nuevo archivo para comenzar a manejar datos biológicos. Para ello, crearemos un nuevo archivo <code>dna.py</code> para imprimir en la terminal la secuencia AAA. Aquí ya estamos entrando en programación Python y hay una serie de reglas o sintaxis que hay que mantener escrupulosamente para que se ejecute el script correctamente.</p>
         <p>Por ejemplo, si en nuestro codigo <code>dna.py</code> escribimos:</p>
         
-        <ul class="codigo-python">
-            <li>print(AAA)</li>
-        </ul>
+        <pre><code class="language-python">print(AAA)</code></pre>
         
         <p>y lo ejecutamos en la terminal, nos da el siguiente error:</p>
         
-        <ul class="terminal-output">
-            <li>(base) MacBook-Air-de-Juan:python juan$ python3.12 dna.py</li>
-            <li>Traceback (most recent call last):</li>
-            <li>&nbsp;&nbsp;File "/Users/juan/Desktop/python/dna.py", line 1, in &lt;module&gt;</li>
-            <li>&nbsp;&nbsp;&nbsp;&nbsp;print(AAA)</li>
-            <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;^^^</li>
-            <li>NameError: name 'AAA' is not defined</li>
-        </ul>
+        <pre class="terminal-output">
+(base) MacBook-Air-de-Juan:python juan$ python3.12 dna.py
+Traceback (most recent call last):
+    File "/Users/juan/Desktop/python/dna.py", line 1, in &lt;module&gt;
+    print(AAA)
+        ^^^
+NameError: name 'AAA' is not defined
+        </pre>
         
         <p>Este error nos avisa de que no hemos definido el todavía tipo de variable. En nuestro caso, como es una secuencia de caracteres alfabéticos equivale a una cadena <a href= "https://en.wikipedia.org/wiki/String_(computer_science)" target="_blank">(string)</a>, por lo que tenemos que indicarlo con comillas simples (o dobles). Si nos fijamos más arriba, "Hola mundo" lo habíamos escrito entre comillas.</p>
         <p> Entonces si ahora escribimos <code>print("AAA")</code> y ejecutamos en el terminal, se imprimirá correctamente:</p>
 
-        <ul class="terminal-output">
-            <li>(base) MacBook-Air-de-Juan:python juan$ python3.12 dna.py</li>
-            <li>AAA</li>
-        </ul>   
+        <pre class="terminal-output">
+(base) MacBook-Air-de-Juan:python juan$ python3.12 dna.py
+AAA
+        </pre>
 
         <p>En resumen, es así como analizamos los datos genéticos. Partimos de unos caracteres alfabéticos (secuencias) y mediante un lenguaje de programación como Python realizamos los análisis.</p>
 
         <p>Podríamos trabajar con cadenas directamente, por ejemplo, creando una variable llamada <code>secuencia</code> en <code>dna.py</code> (en vez de ejecutar directamente <code>print("AAA")</code>), e imprimir esta nueva variable:</p>
 
-         <ul class="codigo-python">
-            <li>secuencia="AAA"</li>
-            <li>print(secuencia)</li>
-        </ul>
-
+        <pre><code class="language-python">secuencia = "AAA"
+print(secuencia)</code></pre>
         <p>que resulta en:</p>
         
-        <ul class="terminal-output">
-            <li>(base) MacBook-Air-de-Juan:python juan$ python3.12 dna.py</li>
-            <li>AAA</li>
-        </ul>   
+        <pre class="terminal-output">
+(base) MacBook-Air-de-Juan:python juan$ python3.12 dna.py
+AAA
+        </pre> 
         
         <p>Podríamos también convertir la secuencia en minúsculas (como en cualquier editor de texto) en Python mediante la función <code>variable.lower()</code>, simplemente añadiendo al código:</p>
 
-        <ul class="codigo-python">
-            <li>secuencia = "AAA"</li>
-            <li>print(secuencia)</li>
-            <li>secuencia = secuencia.lower()</li>
-            <li>print(secuencia)</li>
-        </ul>
+        <pre><code class="language-python">secuencia = "AAA"
+print(secuencia)
+secuencia = secuencia.lower()
+print(secuencia)</code></pre>
         
         <p>Resultando si ejecutamos en la terminal en:</p>
         
-        <ul class="terminal-output">
-            <li>(base) MacBook-Air-de-Juan:python juan$ python3.12 dna.py</li>
-            <li>AAA</li>
-            <li>aaa</li>
-        </ul>
+        <pre class="terminal-output">
+(base) MacBook-Air-de-Juan:python juan$ python3.12 dna.py
+AAA
+aaa
+        </pre>
         
         <p>Es decir, obtendríamos tanto el print de las mayúsculas <code>AAA</code> como de las minúsculas <code>aaa</code>.</p>
         
@@ -188,48 +177,46 @@
 
         <p>Una vez <a href="https://biopython.org/wiki/Download" target="_blank">instalado</a>, lo que debemos hacer es llamar a los módulos que queremos utilizar, las cuales contendrán las funciones de interés. En nuestro ejemplo, vamos a tratar de convertir nuestra secuencia <code>AAA</code> en su cadena  complementaria. En nuestro código, primero importamos la clase <code>Seq</code> desde el módulo <code>Bio.Seq</code>. <code>Seq</code> sirve para convertir nuestra cadena en un objeto de clase <code>Seq</code> (con sentido biológico) y a continuación llamamos a la función que queremos utilizar, concretamente <code>seq.complement()</code>:</p>
 
-        <ul class="codigo-python">
-            <li>from Bio.Seq import Seq</li>
-            <li>secuencia = Seq("AAA")</li>
-            <li>print(secuencia)</li>
-            <li>print(secuencia.complement())</li>
-        </ul>
+        <pre><code class="language-python">from Bio.Seq import Seq
+secuencia = Seq("AAA")
+print(secuencia)
+print(secuencia.complement())</code>
+        </pre>
 
         <p>y obtendríamos:</p>   
 
-        <ul class="terminal-output">
-            <li>(base) MacBook-Air-de-Juan:python juan$ python3.12 dna.py</li>
-            <li>AAA</li>
-            <li>TTT</li>
-        </ul>
+        <pre class="terminal-output">
+(base) MacBook-Air-de-Juan:python juan$ python3.12 dna.py
+AAA
+TTT
+        </pre>
 
         <p>Si por ejemplo, quisiésemos además obtener la secuencia complementaria inversa simplemente habría que utilizar la función <code>reverse_complement()</code>:</p>
         
-        <ul class="codigo-python">
-            <li>from Bio.Seq import Seq</li>
-            <li>secuencia = Seq("AAA")</li>
-            <li>print(secuencia)</li>
-            <li>print(secuencia.complement())</li>
-            <li>print(secuencia.reverse_complement())</li>
-        </ul>
+        <pre><code class="language-python">from Bio.Seq import Seq
+secuencia = Seq("AAA")
+print(secuencia)
+print(secuencia.complement())
+print(secuencia.reverse_complement())</code></pre>
 
         <p>y obtendríamos:</p>
 
-        <ul class="terminal-output">
-            <li>(base) MacBook-Air-de-Juan:python juan$ python3.12 dna.py</li>
-            <li>AAA</li>
-            <li>TTT</li>
-            <li>TTT</li>
-        </ul>
+        <pre class="terminal-output">
+(base) MacBook-Air-de-Juan:python juan$ python3.12 dna.py
+AAA
+TTT
+TTT
+        </pre>
 
         <p>En este caso la cadena complementaria inversa es igual a la complementaria, pero se debe a que estamos partiendo de una secuencia muy corta y con los mismos nucleótidos <code>AAA</code>, pero si en vez de <code>AAA</code> partiésemos con una secuencia más larga y con mayor variedad de nuecleótidos, por ejemplo <code>AAATTTCCC</code> obtendríamos: </p>
 
-        <ul class="terminal-output">
-            <li>(base) MacBook-Air-de-Juan:python juan$ python3.12 dna.py</li>
-            <li>AAATTTCCC</li>
-            <li>TTTAAAGGG</li>
-            <li>GGGAAATTT</li>
-        </ul>
+        <pre class="terminal-output">
+(base) MacBook-Air-de-Juan:python juan$ python3.12 dna.py
+AAATTTCCC
+TTTAAAGGG
+GGGAAATTT
+        </pre>
+
         <p>Aquí ya podemos observar que la complejidad de información va a depender de la longitud de la secuencia, que puede ser de pocas pares de bases hasta alcanzar el nivel de genoma. Para hacernos una idea, el ADN humano está formado por una secuencia lineal de aproximadamente 3.272.116.950 nucleótidos, ordenados uno detrás de otro como letras en un texto, lo que equivaldría a varios gigabytes de información. </p>
         <p>Es posible realizar análísis hasta cierta complejidad en nuestro propio ordenador, sin embargo cuando manejemos grandes cantidad de datos dependemos completamente de supercomputadores y/o servicios de computación en la nube.</p>
     </article>  
