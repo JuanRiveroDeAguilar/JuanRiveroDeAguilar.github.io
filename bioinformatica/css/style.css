@@ -24,6 +24,7 @@ body {
     margin: auto; 
 }
 
+/* --- HEADER Y TITULOS --- */
 header { 
     margin-top: 60px;
     border-bottom: 2px solid var(--line); 
@@ -46,6 +47,7 @@ header .autor {
     font-style: italic; 
 }
 
+/* --- BLOQUES DE CONTENIDO --- */
 section#intro, article {
     margin-bottom: 40px;
     padding-bottom: 40px;
@@ -57,6 +59,7 @@ article:last-of-type {
     border-bottom: none;
 }
 
+/* --- BLOQUE CÓDIGO PYTHON (Limpio) --- */
 .codigo-python {
     background-color: var(--code-bg-light);
     color: var(--code-text-dark);
@@ -76,6 +79,7 @@ article:last-of-type {
     display: block; 
 }
 
+/* --- BLOQUE TERMINAL (Limpio) --- */
 .terminal-output {
     background-color: var(--terminal-bg);
     color: var(--terminal-text);
@@ -95,6 +99,7 @@ article:last-of-type {
     display: block;
 }
 
+/* --- ELEMENTOS DE TEXTO --- */
 h2 { 
     font-size: 1.3rem; 
     text-transform: uppercase; 
