@@ -145,7 +145,7 @@ AAA
 
         <p>En resumen, es así como analizamos los datos genéticos. Partimos de unos caracteres alfabéticos (secuencias) y mediante un lenguaje de programación realizamos los análisis.</p>
 
-        <p>En este momento, podríamos trabajar perfectamente con cadenas. Por ejemplo, si creaamos una variable  <code>secuencia</code> en <code>dna.py</code> (en vez de ejecutar directamente <code>print("AAA")</code>) y ejecutamos:</p>
+        <p>En este momento, podríamos trabajar perfectamente con cadenas. Por ejemplo, si creamos una variable  <code>secuencia</code> en <code>dna.py</code> (en vez de ejecutar directamente <code>print("AAA")</code>) y ejecutamos:</p>
 
         <pre><code class="language-python">secuencia = "AAA"
 print(secuencia)</code></pre>
@@ -173,7 +173,7 @@ aaa
         
         <p>Es decir, obtendríamos tanto el print de las mayúsculas <code>AAA</code> como de las minúsculas <code>aaa</code>.</p>
         
-        <p>Pero aquí otro punto importante. Aunque podamos trabajar directamente con cadenas, en bioinformática por lo general trabajamos con texto que tiene <strong>significado biológico</strong>. Es decir, ya no trataríamos a una A como un letra, sino como al nuceótido A (Adenina). En Python, podemos trabajar con librerías específicas que nos van a permitir realizar análisis de secuencias, como <a href="https://biopython.org" target="_blank">Biopython</a>, el cual trata a los datos como datos biológicos.</p>
+        <p>Y aquí otro punto importante, aunque podamos trabajar directamente con cadenas, en bioinformática por lo general trabajamos con texto que tiene <strong>significado biológico</strong>. Es decir, ya no trataríamos a una A como un letra, sino como al nuceótido A (Adenina). En Python, podemos trabajar con librerías específicas que nos van a permitir realizar análisis de secuencias, como <a href="https://biopython.org" target="_blank">Biopython</a>, el cual trata a los datos como datos biológicos.</p>
 
     </article>
 
@@ -182,9 +182,11 @@ aaa
         <h2>Capítulo 4. Biopython.</h2>   
         
         <p>Biopython es un proyecto con múltiples herramientas para analizar datos genéticos en forma de secuencias biológicas. Estas secuencias se pueden obtener tanto de investigaciones propias como de bases de datos tipo <a href="https://www.ncbi.nlm.nih.gov/genbank/" target="_blank">GenBank</a>.</p>
-        <p>Trabajando con Biopython:</p>
+        <p>Trabajando en Biopython:</p>
 
-        <p>Una vez <a href="https://biopython.org/wiki/Download" target="_blank">instalado</a>, lo que debemos hacer es llamar a los módulos que queremos utilizar, las cuales contendrán las funciones de interés. En nuestro ejemplo, vamos a tratar de convertir nuestra secuencia <code>AAA</code> en su cadena  complementaria. En nuestro código, primero importamos la clase <code>Seq</code> desde el módulo <code>Bio.Seq</code>. <code>Seq</code> sirve para convertir nuestra cadena en un objeto de clase <code>Seq</code> (con sentido biológico) y a continuación llamamos a la función que queremos utilizar, concretamente <code>seq.complement()</code>:</p>
+        <p>Una vez <a href="https://biopython.org/wiki/Download" target="_blank">instalado</a>, lo que debemos hacer es cargar los módulos que queremos utilizar, las cuales contendrán las funciones de interés. En nuestro ejemplo, vamos a tratar de convertir nuestra secuencia <code>AAA</code> en su cadena  complementaria.</p>
+            
+        <p>Para ello, primero importamos la clase <code>Seq</code> desde el módulo <code>Bio.Seq</code>. <code>Seq</code>  para convertir nuestra cadena en un objeto de clase <code>Seq</code> (con sentido biológico) y a continuación llamamos a la función, concretamente <code>seq.complement()</code>:</p>
 
         <pre><code class="language-python">from Bio.Seq import Seq
 secuencia = Seq("AAA")
@@ -217,7 +219,7 @@ TTT
 TTT
         </pre>
 
-        <p>En este caso la cadena complementaria inversa es igual a la complementaria, pero se debe a que estamos partiendo de una secuencia muy corta y con los mismos nucleótidos <code>AAA</code>, pero si en vez de <code>AAA</code> partiésemos con una secuencia más larga y con mayor variedad de nucleótidos, por ejemplo <code>AAATTTCCC</code> obtendríamos: </p>
+        <p>En este caso la cadena complementaria inversa es igual a la complementaria, pero se debe a que estamos partiendo de una secuencia muy corta y con los mismos nucleótidos <code>AAA</code>, pero si en vez de <code>AAA</code> partiésemos con una secuencia más larga y con mayor variedad, por ejemplo <code>AAATTTCCC</code> obtendríamos: </p>
 
         <pre class="terminal-output">
 (base) MacBook-Air-de-Juan:python juan$ python3.12 dna.py
