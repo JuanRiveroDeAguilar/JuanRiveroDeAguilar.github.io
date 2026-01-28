@@ -1,12 +1,11 @@
-/* 1. VARIABLES Y CONFIGURACIÓN BASE */
 :root {
     --bg: #ffffff;
     --text: #1a1a1a;
     --line: #000000;
     --accent: #f0f0f0; 
-    --vsc-bg: #1e1e1e;         /* Fondo exacto de VS Code */
-    --terminal-bg: #0d0d0d;    /* Negro profundo para la consola */
-    --terminal-text: #00ff41;  /* Verde neón brillante */
+    --vsc-bg: #1e1e1e;         
+    --terminal-bg: #0d0d0d;    
+    --terminal-text: #00ff41;  
 }
 
 * {
@@ -28,7 +27,6 @@ body {
     margin: auto; 
 }
 
-/* 2. COMPONENTES DE DISEÑO */
 .badge-construccion {
     position: fixed; 
     top: 20px; 
@@ -86,9 +84,6 @@ p {
     text-align: justify; 
 }
 
-/* 3. BLOQUES DE CÓDIGO Y TERMINAL */
-
-/* Bloque de código Python (Estilo VS Code con Prism.js) */
 pre[class*="language-"] {
     background-color: var(--vsc-bg) !important;
     margin: 25px 0 !important;
@@ -99,7 +94,6 @@ pre[class*="language-"] {
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
 
-/* Bloque de Salida de Terminal (Verde Brillante) */
 .terminal-output {
     background-color: var(--terminal-bg);
     color: var(--terminal-text);
@@ -109,13 +103,12 @@ pre[class*="language-"] {
     margin: 25px 0;
     font-size: 0.85rem;
     border: 1px solid #333;
-    white-space: pre; /* Mantiene alineación perfecta para errores y secuencias */
+    white-space: pre; 
     overflow-x: auto;
-    text-shadow: 0 0 5px rgba(0, 255, 65, 0.3); /* Efecto de brillo neón */
+    text-shadow: 0 0 5px rgba(0, 255, 65, 0.3); 
     line-height: 1.5;
 }
 
-/* Código en línea dentro de párrafos */
 code:not([class*="language-"]) { 
     background: var(--accent); 
     padding: 2px 6px; 
@@ -125,7 +118,6 @@ code:not([class*="language-"]) {
     color: #d63384; 
 }
 
-/* 4. LISTAS Y ENLACES */
 .steps { 
     padding-left: 25px; 
 }
@@ -155,7 +147,6 @@ footer {
     letter-spacing: 2px;
 }
 
-/* 5. RESPONSIVE */
 @media (max-width: 600px) {
     body { 
         padding: 20px 15px; 
